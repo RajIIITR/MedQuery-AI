@@ -1,1 +1,1 @@
-"# MedQuery-AI" 
+# MedQuery-AI
