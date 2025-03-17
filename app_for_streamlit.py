@@ -20,7 +20,7 @@ os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 # Page configuration with custom theme
 st.set_page_config(
-    page_title="HealthBot - Your Medical Assistant",
+    page_title="MedQuery AI - Your Medical Assistant",
     page_icon="🩺",
     layout="wide"
 )
@@ -111,7 +111,7 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     # Main application area
-    st.markdown('<div class="main-header">HealthBot</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">MedQuery AI</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">Your AI Medical Assistant</div>', unsafe_allow_html=True)
 
     # Initialize session state for chat history if it doesn't exist
@@ -193,7 +193,7 @@ with col1:
         st.session_state.messages.append({"role": "user", "content": user_input})
         
         # Display thinking spinner
-        with st.spinner("HealthBot is thinking..."):
+        with st.spinner("MedQuery AI is thinking..."):
             try:
                 # Get response from RAG chain
                 response = rag_chain.invoke({"input": user_input})
@@ -213,7 +213,7 @@ with col1:
 
 with col2:
     # Sidebar content
-    st.markdown("### About HealthBot")
+    st.markdown("### About MedQuery AI")
     
     st.markdown("""
     HealthBot is an AI-powered medical assistant that uses advanced technology to provide reliable medical information.
