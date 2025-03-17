@@ -3,7 +3,7 @@ langchain
 Flask
 pypdf
 python-dotenv
-pinecone-client
+pinecone
 langchain-pinecone
 langchain-community
 langchain-experimental
