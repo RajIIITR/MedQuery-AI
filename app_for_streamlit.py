@@ -216,7 +216,7 @@ with col2:
     st.markdown("### About MedQuery AI")
     
     st.markdown("""
-    HealthBot is an AI-powered medical assistant that uses advanced technology to provide reliable medical information.
+    MedQuery AI is an AI-powered medical assistant that uses advanced technology to provide reliable medical information.
     
     **Key Features:**
     
