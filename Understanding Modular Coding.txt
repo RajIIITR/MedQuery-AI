@@ -26,7 +26,8 @@ Step-3: We will create .env file where we will store all API key like, Google Ge
 
 Step-4: We will create store_index.py file since we are using pinecone which is not an local vector database 
         unlike chromadb & faiss. But this step is optional we can initialize this code in sequential with our
-        app.py file with all other codes too.
+        app_for_streamlit.py or app.py file with all other codes too. In our case we need to first run store_index.py then followed by 
+        app.py or app_for_streamlit.py.
 
 Step-5: Then we will create the main thing that is app.py where we call all our files needed, loading our LLM 
         model linking our different file with each other so that they work synchronously here we simple we can say 
