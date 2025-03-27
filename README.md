@@ -1,4 +1,4 @@
-# 🩺 MedQuery AI: Advanced Medical Knowledge Assistant
+# 🩺 MedQuery AI: Your AI Medical Assistant
 
 ## 🌟 Overview
 
