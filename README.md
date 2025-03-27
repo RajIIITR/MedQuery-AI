@@ -1,131 +1,99 @@
-🩺 MedQuery AI: Advanced Medical Knowledge Assistant
-🌟 Overview
-MedQuery AI is an intelligent medical assistant powered by Retrieval-Augmented Generation (RAG). It utilizes Google's Gemini AI, Hugging Face embeddings, and Pinecone vector database to provide accurate and contextual medical insights based on a stored medical book.
+# 🩺 MedQuery AI: Advanced Medical Knowledge Assistant
 
-This AI-powered system processes text-based queries by retrieving relevant medical knowledge from a pre-indexed book and enhances responses using a large language model (LLM).
+## 🌟 Overview
 
-🚀 Features
-📝 Text-Based Medical Queries
-Retrieves accurate medical insights from a pre-processed medical book.
+MedQuery AI is an intelligent medical assistant powered by Retrieval-Augmented Generation (RAG). It leverages cutting-edge AI technologies including Google's Gemini AI, Hugging Face embeddings, and Pinecone vector database to provide accurate and contextual medical insights based on a stored medical book.
 
-No external web search—all responses are based strictly on the stored book content.
+## 🚀 Features
 
-Uses Pinecone vector database for fast and efficient search.
+- **📝 Text-Based Medical Queries**
+  - Retrieves accurate medical insights from a pre-processed medical book
+  - No external web search—responses strictly based on stored book content
+  - Uses Pinecone vector database for fast and efficient search
 
-📖 Multi-Modal Knowledge Base
-Book chunks are embedded using Hugging Face Sentence Transformers.
+- **📖 Multi-Modal Knowledge Base**
+  - Book chunks embedded using Hugging Face Sentence Transformers
+  - Cosine similarity search in Pinecone ensures most relevant results
+  - Processed chunks enhanced by LLMs (Gemini-2.0-Flash or Azure GPT-3.5-Turbo)
 
-Cosine similarity search in Pinecone ensures the most relevant results.
+## 🔄 Workflow
 
-Processed chunks are passed to LLMs (Gemini-2.0-Flash or Azure GPT-3.5-Turbo) for enhanced answer generation.
+1. **Data Preparation & Embedding Storage**
+   - Medical book split into chunks for efficient retrieval
+   - Chunks converted to embeddings using pretrained model
+   - Embeddings stored in Pinecone vector database
 
-🔄 Workflow
-1️⃣ Data Preparation & Embedding Storage
-A medical book is split into chunks for efficient retrieval.
+2. **Query Processing & Similarity Search**
+   - User submits medical query
+   - Query converted to embedding
+   - Cosine similarity search retrieves top 3-5 most relevant book chunks
 
-Each chunk is converted into embeddings using a pretrained embedding model.
+3. **Response Generation via RAG Pipeline**
+   - Retrieved book chunks combined with user query
+   - LLM generates comprehensive response
 
-The chunk embeddings are stored in Pinecone vector database for similarity-based search.
+4. **Output Presentation**
+   - AI-generated response displayed
+   - Referenced book sections provided
 
-2️⃣ Query Processing & Similarity Search
-The user submits a query related to medical topics.
+## 🛠️ Installation
 
-The query is converted into an embedding using the same embedding model.
+### Local Setup
 
-A cosine similarity search is performed in Pinecone, retrieving the top 3-5 most relevant book chunks.
-
-3️⃣ Response Generation via LLM (RAG Pipeline)
-The retrieved book chunks are combined with the user query.
-
-The LLM (Gemini-2.0-Flash or GPT-3.5-Turbo) processes this input and generates a response.
-
-4️⃣ Output Presentation
-The AI-generated response is displayed along with referenced book sections.
-
-The system provides reliable, book-based medical information.
-
-🛠️ Installation
-Local Setup
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
+1. Clone the Repository
+```bash
 git clone https://github.com/RajIIITR/medical-knowledge-assistant.git
 cd medical-knowledge-assistant
-2️⃣ Create a Virtual Environment
-bash
-Copy
-Edit
+```
+
+2. Create a Virtual Environment
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-4️⃣ Set Up Environment Variables
-Create a .env file in the project root and add the necessary API keys:
+```
 
-ini
-Copy
-Edit
+3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+4. Set Up Environment Variables
+Create a `.env` file in the project root:
+```ini
 PINECONE_API_KEY=your_pinecone_key
 GOOGLE_GENAI_KEY=your_google_ai_key
-📌 Requirements
-Python 3.10
+```
 
-Key Dependencies:
+## 📌 Requirements
 
-txt
-Copy
-Edit
-sentence-transformers==2.2.2
-langchain==0.3.1
-pypdf==3.12.0
-python-dotenv==1.0.1
-langchain-pinecone==0.2.3
-langchain-community==0.3.1
-langchain-experimental==0.0.1
-langchain-google-genai==2.0.11
-duckduckgo-search==7.5.3
-torch==2.6.0
-torchaudio==2.6.0
-torchvision==0.21.0
-streamlit==1.29.0
-▶️ Usage
-Run the Streamlit Application
-bash
-Copy
-Edit
+- Python 3.10
+- Key Dependencies:
+  - sentence-transformers==2.2.2
+  - langchain==0.3.1
+  - streamlit==1.29.0
+  - (Full list in requirements.txt)
+
+## ▶️ Usage
+
+Run the Streamlit Application:
+```bash
 streamlit run app.py
-Using MedQuery AI
-Text Query Mode:
+```
 
-Enter a medical-related query.
+### Interaction Modes
+- **Text Query Mode**: Enter medical-related queries
+- **Retrieval-Augmented Generation**: Fetches most relevant book chunks to generate informed responses
 
-The AI retrieves relevant book-based information and generates an answer.
+## 🌍 Deployment Options
 
-Retrieval-Augmented Generation (RAG):
+- Streamlit Cloud
+- AWS (EC2, Lambda, S3)
+- Google Cloud Run
 
-The system fetches the most relevant book chunks based on the user query.
+🔗 **Live Demo**: [https://medqueryai.streamlit.app/](https://medquery-ai.streamlit.app/)
 
-These are passed to LLM to generate a well-informed response.
-
-🌍 Deployment
-Streamlit App
-🔗 Live Demo: https://medqueryai.streamlit.app/
-
-Deployment Options
-Streamlit Cloud
-
-AWS (EC2, Lambda, S3)
-
-Google Cloud Run
-
-📄 Project Structure
-bash
-Copy
-Edit
+## 📄 Project Structure
+```
 MedQueryAI/
 ├── app.py                 # Main Streamlit application
 ├── src/
@@ -134,11 +102,19 @@ MedQueryAI/
 ├── store_index.py         # Script to store book data in Pinecone
 ├── requirements.txt       # Dependencies
 └── .env                   # API keys (ignored in Git)
-⚠️ Disclaimer
-🚨 Important Medical Notice:
+```
+
+## ⚠️ Disclaimer
+
+🚨 **Important Medical Notice**: 
 MedQuery AI provides informational support only. It does not replace professional medical advice. Always consult a healthcare professional for medical concerns.
 
-💡 Future Improvements
-🔹 Integrate Real-Time Web Search – Fetch real-time medical data from DuckDuckGo or Google.
-🔹 Expand to Multi-Modal Queries – Support medical image analysis using AI-powered vision models.
-🔹 Enhance Retrieval Efficiency – Experiment with Hybrid Search (Dense + Keyword Search).
+## 💡 Future Improvements
+
+- Integrate Real-Time Web Search
+- Support Multi-Modal Queries with Medical Image Analysis
+- Enhance Retrieval Efficiency with Hybrid Search
+
+⭐ **Star this repository** if you find it useful!
+
+## 🚀 Let’s revolutionize AI-powered medical assistance together! 🚀
